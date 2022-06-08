@@ -15,7 +15,24 @@ public class Person {
     public Person(){
 
     }
+    public void EatFood(String foodToEat)
+    {
+        var stomack = GetStomack();
+        stomack.AddItemToStomack(foodToEat);
+    }
 
+    public Stomack GetStomack()
+    {
+        //En foreach type løkke i java ser slik ut
+       for(Organ organ : Organs)
+       {
+           if(organ.OrganName == "Stomack")
+           {
+               return (Stomack)organ;
+           }
+       }
+       return null;
+    }
     public void PersonIsBorn(){
         Organs = new ArrayList<Organ>();
         Organs.add(new Organ("Kidney"));
